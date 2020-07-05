@@ -11,9 +11,12 @@ class DatabaseHelper {
 
   String taskTable = "task_table";
   String colId = "id";
+  String colTitle = "title";
   String colTask = "task";
   String colDate = "date";
   String colTime = "time";
+  String colOncelik = "oncelik";
+  String colTur = "tur";
 
   DatabaseHelper._createInstance();
 
@@ -47,14 +50,14 @@ class DatabaseHelper {
   //tablo oluşturma sorgusu
   void _createDb(Database db, int newVersion) async {
     await db.execute(
-        'CREATE TABLE $taskTable ($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colTask TEXT, $colDate TEXT, $colTime TEXT)');
+        'CREATE TABLE $taskTable ($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colTitle TEXT, $colTask TEXT, $colDate TEXT, $colTime TEXT,$colOncelik INTEGER,$colTur TEXT)');
     print("Tablo oluşturuldu");
   }
 
 // Alma İşlemi: Tüm Görev nesnelerini veritabanından alma
   Future<List<Map<String, dynamic>>> getTaskMapList() async {
     Database db = await this.database;
-    var result = db.query(taskTable, orderBy: '$colId, $colDate, $colTime');
+    var result = db.query(taskTable, orderBy: '$colOncelik, $colTask, $colTitle,$colTur, $colDate, $colTime,$colId,$colTur');
     return result;
   }
 

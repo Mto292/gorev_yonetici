@@ -10,8 +10,8 @@ void main() {
     theme: ThemeData(
       buttonColor: Colors.deepOrange,
       //ekranların arka plan renkleri
-      backgroundColor: Colors.white,
-      scaffoldBackgroundColor: Colors.white,
+      backgroundColor: Colors.blueGrey.shade50,
+      scaffoldBackgroundColor: Colors.blueGrey.shade50,
       primarySwatch: Colors.teal,
     ),
     debugShowCheckedModeBanner: false,

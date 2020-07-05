@@ -23,7 +23,7 @@ class Label extends StatelessWidget {
         this.text,
         style: TextStyle(
           color: color != null ? color : Colors.black,
-          fontSize: size != null ? size : SizeConfig.safeBlockHorizontal * 7,
+          fontSize: size != null ? size : SizeConfig.safeBlockHorizontal * 5,
           fontWeight: FontWeight.w400,
         ),
       ),

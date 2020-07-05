@@ -16,6 +16,10 @@ class MyTextField extends StatelessWidget {
   Icon prefixIcon;
   Icon suffixIcon;
   String label;
+  bool filled;
+  Color fillColor;
+  InputBorder border;
+  Function onSubmitted;
 
   MyTextField({
     Key key,
@@ -32,6 +36,10 @@ class MyTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.label,
+    this.fillColor,
+    this.filled,
+    this.border,
+    this.onSubmitted,
   }) : super(key: key);
 
   @override
@@ -46,11 +54,14 @@ class MyTextField extends StatelessWidget {
       maxLength: maxLength,
       maxLines: maxLines,
       onTap: this.onTap,
+      onSubmitted: onSubmitted,
       decoration: InputDecoration(
         icon: icon,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
-        border: OutlineInputBorder(
+        filled: filled ?? filled,
+        fillColor: fillColor ?? fillColor,
+        border:border ?? OutlineInputBorder(
           borderSide: BorderSide(width: SizeConfig.screenWidth * 0.001),
         ),
       ),
