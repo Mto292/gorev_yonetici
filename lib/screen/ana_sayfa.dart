@@ -12,9 +12,10 @@ class AnaSayfa extends StatefulWidget {
   AnaSayfaState createState() => AnaSayfaState();
 }
 
-class AnaSayfaState extends State<AnaSayfa> {
+class AnaSayfaState extends State<AnaSayfa> with TickerProviderStateMixin{
   //sqfl için nesne türetik
   DatabaseHelper databaseHelper = DatabaseHelper();
+  AnimationController animationController;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final AppBarController appBarController = AppBarController();
@@ -29,6 +30,19 @@ class AnaSayfaState extends State<AnaSayfa> {
   int count = 0;
 
   var searchMode = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    animationController = AnimationController(vsync: this,duration: Duration(milliseconds: 100),upperBound: 3.5,
+    lowerBound: 0);
+    animationController.addListener(() {
+      debugPrint(animationController.value.toString());
+      setState(() {});
+    });
+    animationController.forward();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,10 +102,10 @@ class AnaSayfaState extends State<AnaSayfa> {
   Widget floatingActionButton() {
     return GestureDetector(
       child: CircleAvatar(
-        radius: SizeConfig.safeBlockVertical * 3.5,
+        radius: SizeConfig.safeBlockVertical * animationController.value,
         backgroundColor: Colors.deepOrange,
         foregroundColor: Colors.white,
-        child: Icon(Icons.add),
+        child: Icon(Icons.add,size: SizeConfig.safeBlockVertical * 0.8 * animationController.value,),
       ),
       onTap: () {
         //tıklandığında gidilen ekran

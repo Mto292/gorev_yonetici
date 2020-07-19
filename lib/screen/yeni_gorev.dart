@@ -58,6 +58,7 @@ class YeniGorevState extends State<YeniGorev> {
         TimeOfDay.now().period.toString().substring(10).toUpperCase();
   }
 
+
   @override
   Widget build(BuildContext context) {
     //sqfl başlatıyoruz
@@ -205,7 +206,7 @@ class YeniGorevState extends State<YeniGorev> {
   Widget oncelikCeckbox() {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: SizeConfig.screenWidth * 0.05),
+      margin: EdgeInsets.symmetric(horizontal: SizeConfig.screenWidth * 0.05),
       height: SizeConfig.screenHeight * 0.07,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -278,7 +279,7 @@ class YeniGorevState extends State<YeniGorev> {
   Widget tarih() {
     return InkWell(
       child: Container(
-        padding:
+        margin:
             EdgeInsets.symmetric(horizontal: SizeConfig.screenWidth * 0.05),
         height: SizeConfig.screenHeight * 0.07,
         child: Row(
@@ -317,10 +318,10 @@ class YeniGorevState extends State<YeniGorev> {
   Widget saat() {
     return InkWell(
       child: Container(
-        padding: EdgeInsets.only(
+        margin: EdgeInsets.only(
           right: SizeConfig.screenWidth * 0.05,
           left: SizeConfig.screenWidth * 0.05,
-          bottom: SizeConfig.screenHeight * 0.05,
+          bottom: SizeConfig.screenHeight * 0.01,
         ),
         height: SizeConfig.screenHeight * 0.07,
         child: Row(
